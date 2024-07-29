@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  postgres:
+    container_name: user-project-postgres
+    image: postgres
+    ports:
+      - "5434:5432"
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Aybeniz2021
+
+  management-app-jpa:
+    container_name: user-project-postgres
+    image: user-project-postgres
+    ports:
+      - "8083:8083"
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/postgres
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: Aybeniz2021
+      SPRING_APPLICATION_NAME: user-project-postgres
+      SERVER_PORT: 8083
+
+    network_mode: "host"
+    tty: true
+    stdin_open: true
