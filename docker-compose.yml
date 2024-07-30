@@ -11,7 +11,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: Aybeniz2021
 
-  management-app-jpa:
+  user-project:
     container_name: user-project-postgres
     image: user-project-postgres
     ports:
