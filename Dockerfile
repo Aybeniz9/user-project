@@ -5,10 +5,11 @@ FROM openjdk:22
 WORKDIR /app
 
 # Copy the JAR file into the container
-COPY target/user-project.jar /app/user-project.jar
+COPY build/libs/user-project.jar /app/user-project.jar
 
 # Expose the port that the application runs on
 EXPOSE 8083
 
 # Command to run the application
-ENTRYPOINT ["java", "-jar", "user-project.jar"]
+ENTRYPOINT ["java", "-jar", "/app/user-project.jar"]
+

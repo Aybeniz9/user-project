@@ -12,7 +12,7 @@ services:
       POSTGRES_PASSWORD: Aybeniz2021
 
   user-project:
-    container_name: user-project-postgres
+    container_name: user-project
     image: user-project-postgres
     ports:
       - "8083:8083"
@@ -26,9 +26,7 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/postgres
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: Aybeniz2021
-      SPRING_APPLICATION_NAME: user-project-postgres
+      SPRING_APPLICATION_NAME: user-project
       SERVER_PORT: 8083
-
-    network_mode: "host"
     tty: true
     stdin_open: true
